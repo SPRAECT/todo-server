@@ -1,10 +1,7 @@
 package com.spraect.todoserver.model.domain;
 
 import lombok.*;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -14,6 +11,7 @@ import javax.persistence.Id;
 public class Todo {
 
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY) //DB에 위임
     @Column
     @NonNull
     private Long id;
@@ -23,7 +21,7 @@ public class Todo {
     private Long userId;
 
     @Column
-    private Character content;
+    private String content;
 
     @Column
     @NonNull
